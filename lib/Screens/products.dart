@@ -17,158 +17,129 @@ class ProductPage extends ConsumerWidget {
             left: 15,
             right: 15,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 37,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.grey,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      height: 33,
-                      width: 108,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 37,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.grey,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 33,
+                        width: 108,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: const Center(
+                          child: Text('All'),
+                        ),
                       ),
-                      child: const Center(
-                        child: Text('All'),
-                      ),
-                    ),
-                    Container(
-                      height: 33,
-                      width: 108,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white,
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'New Arrivals',
-                          style: TextStyle(
-                            color: Colors.black,
+                      Container(
+                        height: 33,
+                        width: 108,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: Colors.white,
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'New Arrivals',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: 33,
-                      width: 108,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: const Center(
-                        child: Text('Top Sellers'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              //
-              //
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                child: Container(
-                  height: 44,
-                  width: 144,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    border: Border.all(width: 1, color: Colors.green),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(Icons.menu_sharp),
-                      Text('Filter & Sort', style: TextStyle(fontSize: 14)),
-                      Text(
-                        '3',
-                        style: TextStyle(
-                          color: Colors.green,
+                      Container(
+                        height: 33,
+                        width: 108,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: const Center(
+                          child: Text('Top Sellers'),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-              //
-              Container(
-                height: 1,
-                width: double.infinity,
-                color: Colors.grey,
-              ),
-              const SizedBox(height: 20),
-              //
-              //
-              SizedBox(
-                  height: 700,
-                  width: double.infinity,
-                  child: products.when(data: (data) {
-                    if (data.isEmpty) {
-                      return const Center(
-                        child: Text('No Products'),
-                      );
-                    } else {
-                      return GridView.builder(
-                        itemCount: data.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 0.6,
-                          crossAxisSpacing: 7,
-                          mainAxisSpacing: 7,
-                          crossAxisCount: 2,
+                //
+                //
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  child: Container(
+                    height: 44,
+                    width: 144,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(width: 1, color: Colors.green),
+                    ),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(Icons.menu_sharp),
+                        Text('Filter & Sort', style: TextStyle(fontSize: 14)),
+                        Text(
+                          '3',
+                          style: TextStyle(
+                            color: Colors.green,
+                          ),
                         ),
-                        itemBuilder: (context, index) {
-                          final product = data[index];
-                          return Column(
-                            children: [
-                              Container(
-                                height: 180,
-                                width: 180,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: Stack(
-                                  children: [
-                                    Image.network(
-                                        'https://api.timbu.cloud/images/${product.photos[0].url}'),
-                                    Positioned(
-                                      bottom: 0,
-                                      left: 7,
-                                      child: Container(
-                                        height: 32,
-                                        width: 32,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(4),
-                                            color: Colors.white),
-                                        child: Center(
-                                          child: Image.asset(
-                                              'assets/images/favourite.png'),
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      bottom: 0,
-                                      right: 7,
-                                      child: InkWell(
-                                        onTap: () {
-                                          final product = data[index];
-                                          CartFunction()
-                                              .addToCart(product: product);
-                                          Navigator.of(context)
-                                              .pushAndRemoveUntil(
-                                            MaterialPageRoute(
-                                              builder: (context) => CartPage(
-                                                  product: data[index]),
-                                            ),
-                                            (route) => false,
-                                          );
-                                        },
+                      ],
+                    ),
+                  ),
+                ),
+                //
+                Container(
+                  height: 1,
+                  width: double.infinity,
+                  color: Colors.grey,
+                ),
+                const SizedBox(height: 20),
+                //
+                //
+                SizedBox(
+                    height: 700,
+                    width: double.infinity,
+                    child: products.when(data: (data) {
+                      if (data.isEmpty) {
+                        return const Center(
+                          child: Text('No Products'),
+                        );
+                      } else {
+                        return GridView.builder(
+                          itemCount: data.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            childAspectRatio: 0.6,
+                            crossAxisSpacing: 7,
+                            mainAxisSpacing: 7,
+                            crossAxisCount: 2,
+                          ),
+                          itemBuilder: (context, index) {
+                            final product = data[index];
+                            return Column(
+                              children: [
+                                Container(
+                                  height: 180,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Image.network(
+                                          'https://api.timbu.cloud/images/${product.photos[0].url}'),
+                                      Positioned(
+                                        bottom: 0,
+                                        left: 7,
                                         child: Container(
                                           height: 32,
                                           width: 32,
@@ -178,91 +149,122 @@ class ProductPage extends ConsumerWidget {
                                               color: Colors.white),
                                           child: Center(
                                             child: Image.asset(
-                                                'assets/images/cart.png',
-                                                color: Colors.black),
+                                                'assets/images/favourite.png'),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 103,
-                                width: 180,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 10),
-                                          child: Row(
-                                            children: [
-                                              Image.asset(
-                                                  'assets/images/₦.png'),
-                                              Text(
-                                                ' ${product.currentPrice[8]}, 000',
-                                                style: const TextStyle(
-                                                  color: Color(0xFF077929),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                      Positioned(
+                                        bottom: 0,
+                                        right: 7,
+                                        child: InkWell(
+                                          onTap: () {
+                                            final product = data[index];
+                                            CartFunction()
+                                                .addToCart(product: product);
+                                            Navigator.of(context)
+                                                .pushAndRemoveUntil(
+                                              MaterialPageRoute(
+                                                builder: (context) => CartPage(
+                                                    product: data[index]),
                                               ),
-                                            ],
-                                          ),
-                                        ),
-                                        Row(children: [
-                                          const Text(
-                                            '5 ',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
+                                              (route) => false,
+                                            );
+                                          },
+                                          child: Container(
+                                            height: 32,
+                                            width: 32,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(4),
+                                                color: Colors.white),
+                                            child: Center(
+                                              child: Image.asset(
+                                                  'assets/images/cart.png',
+                                                  color: Colors.black),
                                             ),
                                           ),
-                                          Image.asset(
-                                            'assets/images/Star.png',
-                                            height: 25,
-                                          ),
-                                        ]),
-                                      ],
-                                    ),
-                                    //
-                                    Text(
-                                      product.description,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      product.name,
-                                      style: const TextStyle(fontSize: 15),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          );
-                        },
+                                SizedBox(
+                                  height: 103,
+                                  width: 180,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 10),
+                                            child: Row(
+                                              children: [
+                                                Image.asset(
+                                                    'assets/images/₦.png'),
+                                                Text(
+                                                  ' ${product.currentPrice[8]}, 000',
+                                                  style: const TextStyle(
+                                                    color: Color(0xFF077929),
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Row(children: [
+                                            const Text(
+                                              '5 ',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Image.asset(
+                                              'assets/images/Star.png',
+                                              height: 25,
+                                            ),
+                                          ]),
+                                        ],
+                                      ),
+                                      //
+                                      Text(
+                                        product.description,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        product.name,
+                                        style: const TextStyle(fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    }, error: (_, __) {
+                      return const Center(
+                        child: Text('Error cannot load products'),
                       );
-                    }
-                  }, error: (_, __) {
-                    return const Center(
-                      child: Text('Error cannot load products'),
-                    );
-                  }, loading: () {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }))
-            ],
+                    }, loading: () {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }))
+              ],
+            ),
           ),
         ),
       ),

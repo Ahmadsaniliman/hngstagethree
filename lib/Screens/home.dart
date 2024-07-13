@@ -9,9 +9,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 15,
-          horizontal: 15,
+        padding: const EdgeInsets.only(
+          top: 15,
+          left: 15, right: 15
         ),
         child: Column(
           children: [
