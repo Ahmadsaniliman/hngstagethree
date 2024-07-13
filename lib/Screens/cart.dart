@@ -69,7 +69,7 @@ class _CartPageState extends ConsumerState<CartPage> {
                         children: [
                           const Icon(Icons.search),
                           const SizedBox(width: 10),
-                          Container(
+                          SizedBox(
                             height: 48,
                             width: 48,
                             child: Stack(
@@ -155,7 +155,7 @@ class _CartPageState extends ConsumerState<CartPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      productt!.description,
+                                      productt.description,
                                       style: const TextStyle(
                                         fontSize: 16,
                                         color: Colors.black,

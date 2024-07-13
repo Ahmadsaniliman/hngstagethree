@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         const Icon(Icons.search),
                         const SizedBox(width: 10),
-                        Container(
+                        SizedBox(
                           height: 48,
                           width: 48,
                           child: Stack(
