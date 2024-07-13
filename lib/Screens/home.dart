@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
             //
             //
             const Padding(
-              padding: EdgeInsets.symmetric(vertical: 25),
+              padding: EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 textAlign: TextAlign.center,
                 '2024/2025\nPRODUCT ARRIVAL',
