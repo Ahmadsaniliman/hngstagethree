@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uiandtimbuapiimpl/Screens/checkout.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -329,20 +330,32 @@ class CartPage extends StatelessWidget {
                       ),
                     ),
 
-                    Container(
-                      height: 44,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.green,
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Proceed to checkout',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const Checkout();
+                            },
+                          ),
+                          (route) => false,
+                        );
+                      },
+                      child: Container(
+                        height: 44,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.green,
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Proceed to checkout',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
