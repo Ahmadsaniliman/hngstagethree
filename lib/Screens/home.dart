@@ -35,12 +35,42 @@ class HomePage extends StatelessWidget {
                         const Icon(Icons.search),
                         const SizedBox(width: 10),
                         Container(
-                          height: 44,
-                          width: 44,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: Colors.green),
-                          child: const Icon(Icons.menu),
+                          height: 48,
+                          width: 48,
+                          child: Stack(
+                            children: [
+                              Container(
+                                height: 44,
+                                width: 44,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4),
+                                  color: Colors.green,
+                                ),
+                                child: const Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Positioned(
+                                top: 0,
+                                right: 0,
+                                child: Container(
+                                  height: 16,
+                                  width: 16,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      '4',
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -53,7 +83,7 @@ class HomePage extends StatelessWidget {
               height: 321,
               width: double.infinity,
               child: Image.asset(
-                'assets/images/image 8.png',
+                'assets/images/Spring_prev_ui 1.png',
                 fit: BoxFit.fill,
               ),
             ),
@@ -63,10 +93,10 @@ class HomePage extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 25),
               child: Text(
                 textAlign: TextAlign.center,
-                '2024/2025\nJERSEY ARRIVAL',
+                '2024/2025\nPRODUCT ARRIVAL',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 47,
+                  fontSize: 42,
                 ),
               ),
             ),
@@ -83,12 +113,12 @@ class HomePage extends StatelessWidget {
             //
             //
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25),
+              padding: const EdgeInsets.symmetric(vertical: 30),
               child: InkWell(
                 onTap: () {
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
-                      builder: (context) => const ProductsPage(),
+                      builder: (context) => const ProductPage(),
                     ),
                     (route) => false,
                   );

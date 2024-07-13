@@ -52,7 +52,7 @@ class Checkout extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey,
+                  color: Colors.grey.shade300,
                 ),
                 child: Row(
                   children: [
@@ -92,6 +92,7 @@ class Checkout extends StatelessWidget {
               ),
               //
               //
+              const SizedBox(height: 20),
               SizedBox(
                 height: 70,
                 width: double.infinity,
@@ -110,18 +111,19 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(10),
-                          hintText: 'FirstName *',
-                        ),
+                            contentPadding: EdgeInsets.all(10),
+                            hintText: 'FirstName *',
+                            border: InputBorder.none),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
               //
               SizedBox(
                 height: 70,
@@ -141,18 +143,20 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10),
                           hintText: 'LastName *',
+                          border: InputBorder.none,
                         ),
                       ),
                     )
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
               //
 
               SizedBox(
@@ -173,18 +177,20 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10),
                           hintText: 'Email Address',
+                          border: InputBorder.none,
                         ),
                       ),
                     )
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
               //
               SizedBox(
                 height: 70,
@@ -204,12 +210,13 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10),
                           hintText: 'Phone Number *',
+                          border: InputBorder.none,
                         ),
                       ),
                     )
@@ -217,6 +224,7 @@ class Checkout extends StatelessWidget {
                 ),
               ),
               //
+              const SizedBox(height: 10),
 
               SizedBox(
                 height: 70,
@@ -236,18 +244,19 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(10),
-                          hintText: 'Line Address 1 *',
-                        ),
+                            contentPadding: EdgeInsets.all(10),
+                            hintText: 'Line Address 1 *',
+                            border: InputBorder.none),
                       ),
                     )
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
               //
 
               SizedBox(
@@ -268,18 +277,20 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10),
                           hintText: 'Line Address 2 *',
+                          border: InputBorder.none,
                         ),
                       ),
                     )
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
               //
 
               SizedBox(
@@ -300,18 +311,19 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(10),
-                          hintText: 'Country/Region *',
-                        ),
+                            contentPadding: EdgeInsets.all(10),
+                            hintText: 'Country/Region *',
+                            border: InputBorder.none),
                       ),
                     )
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
               //
 
               SizedBox(
@@ -332,19 +344,20 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10),
                           hintText: 'State *',
+                          border: InputBorder.none,
                         ),
                       ),
                     )
                   ],
                 ),
               ),
-
+              const SizedBox(height: 10),
               //
               SizedBox(
                 height: 70,
@@ -364,18 +377,22 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10),
                           hintText: 'Post Code *',
+                          border: InputBorder.none,
                         ),
                       ),
                     )
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
+              //
+
               SizedBox(
                 height: 70,
                 width: double.infinity,
@@ -394,15 +411,217 @@ class Checkout extends StatelessWidget {
                       height: 44,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(width: 0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10),
                           hintText: 'City *',
+                          border: InputBorder.none,
                         ),
                       ),
                     )
+                  ],
+                ),
+              ),
+              const SizedBox(height: 25),
+              SizedBox(
+                height: 439,
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const Text(
+                      'Payment Option',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      height: 42,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 32,
+                            width: 180,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.white,
+                            ),
+                            child: const Center(
+                              child: Text('Card'),
+                            ),
+                          ),
+                          Container(
+                            height: 32,
+                            width: 180,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: const Center(
+                              child: Text('Bank Transfer'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    //
+                    //
+                    SizedBox(
+                      height: 70,
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Name on card *',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          Container(
+                            height: 44,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                border: Border.all(width: 0.5),
+                                borderRadius: BorderRadius.circular(4)),
+                            child: const TextField(
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(10),
+                                hintText: 'Name on card *',
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    //
+                    //
+                    SizedBox(
+                      height: 70,
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Card Number *',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          Container(
+                            height: 44,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                border: Border.all(width: 0.5),
+                                borderRadius: BorderRadius.circular(4)),
+                            child: const TextField(
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(10),
+                                hintText: 'Card number *',
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    //
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          height: 70,
+                          width: 180,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Expiry Date *',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Container(
+                                height: 44,
+                                width: 180,
+                                decoration: BoxDecoration(
+                                    border: Border.all(width: 0.5),
+                                    borderRadius: BorderRadius.circular(4)),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.all(10),
+                                    hintText: '00/00 *',
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 70,
+                          width: 180,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'CCV *',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Container(
+                                height: 44,
+                                width: 180,
+                                decoration: BoxDecoration(
+                                    border: Border.all(width: 0.5),
+                                    borderRadius: BorderRadius.circular(4)),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.all(10),
+                                    hintText: '0000 *',
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    //
+                    Container(
+                      height: 48,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0xFF077929),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Make Payment',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
