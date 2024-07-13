@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uiandtimbuapiimpl/Model/cart_functions.dart';
 import 'package:uiandtimbuapiimpl/Provider/provider.dart';
+import 'package:uiandtimbuapiimpl/Screens/cart.dart';
 
 class ProductPage extends ConsumerWidget {
   const ProductPage({super.key});
@@ -132,10 +134,8 @@ class ProductPage extends ConsumerWidget {
                                 ),
                                 child: Stack(
                                   children: [
-                                    Expanded(
-                                      child: Image.network(
-                                          'https://api.timbu.cloud/images/${product.photos[0].url}'),
-                                    ),
+                                    Image.network(
+                                        'https://api.timbu.cloud/images/${product.photos[0].url}'),
                                     Positioned(
                                       bottom: 0,
                                       left: 7,
@@ -155,17 +155,32 @@ class ProductPage extends ConsumerWidget {
                                     Positioned(
                                       bottom: 0,
                                       right: 7,
-                                      child: Container(
-                                        height: 32,
-                                        width: 32,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(4),
-                                            color: Colors.white),
-                                        child: Center(
-                                          child: Image.asset(
-                                              'assets/images/cart.png',
-                                              color: Colors.black),
+                                      child: InkWell(
+                                        onTap: () {
+                                          final product = data[index];
+                                          CartFunction()
+                                              .addToCart(product: product);
+                                          Navigator.of(context)
+                                              .pushAndRemoveUntil(
+                                            MaterialPageRoute(
+                                              builder: (context) => CartPage(
+                                                  product: data[index]),
+                                            ),
+                                            (route) => false,
+                                          );
+                                        },
+                                        child: Container(
+                                          height: 32,
+                                          width: 32,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                              color: Colors.white),
+                                          child: Center(
+                                            child: Image.asset(
+                                                'assets/images/cart.png',
+                                                color: Colors.black),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -189,9 +204,9 @@ class ProductPage extends ConsumerWidget {
                                             children: [
                                               Image.asset(
                                                   'assets/images/₦.png'),
-                                              const Text(
-                                                ' 500,000',
-                                                style: TextStyle(
+                                              Text(
+                                                ' ${product.currentPrice[8]}, 000',
+                                                style: const TextStyle(
                                                   color: Color(0xFF077929),
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.bold,

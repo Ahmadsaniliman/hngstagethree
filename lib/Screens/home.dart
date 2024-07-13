@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uiandtimbuapiimpl/Model/cart_functions.dart';
 import 'package:uiandtimbuapiimpl/Screens/products.dart';
 
 class HomePage extends StatelessWidget {
@@ -61,10 +62,10 @@ class HomePage extends StatelessWidget {
                                     shape: BoxShape.circle,
                                     color: Colors.white,
                                   ),
-                                  child: const Center(
+                                  child: Center(
                                     child: Text(
-                                      '4',
-                                      style: TextStyle(fontSize: 10),
+                                      CartFunction().products.length.toString(),
+                                      style: const TextStyle(fontSize: 10),
                                     ),
                                   ),
                                 ),

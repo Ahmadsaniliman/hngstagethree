@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uiandtimbuapiimpl/Model/cart_functions.dart';
+import 'package:uiandtimbuapiimpl/Screens/payment.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({super.key});
@@ -31,13 +33,46 @@ class Checkout extends StatelessWidget {
                         children: [
                           const Icon(Icons.search),
                           const SizedBox(width: 10),
-                          Container(
-                            height: 44,
-                            width: 44,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Colors.green),
-                            child: const Icon(Icons.menu),
+                          SizedBox(
+                            height: 48,
+                            width: 48,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 44,
+                                  width: 44,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Colors.green,
+                                  ),
+                                  child: const Icon(
+                                    Icons.menu,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  right: 0,
+                                  child: Container(
+                                    height: 16,
+                                    width: 16,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        CartFunction()
+                                            .products
+                                            .length
+                                            .toString(),
+                                        style: const TextStyle(fontSize: 10),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -524,16 +559,30 @@ class Checkout extends StatelessWidget {
                           ),
                           Container(
                             height: 44,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 13),
                             width: double.infinity,
                             decoration: BoxDecoration(
                                 border: Border.all(width: 0.5),
                                 borderRadius: BorderRadius.circular(4)),
-                            child: const TextField(
-                              decoration: InputDecoration(
-                                contentPadding: EdgeInsets.all(10),
-                                hintText: 'Card number *',
-                                border: InputBorder.none,
-                              ),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/Mastercard.png',
+                                ),
+                                const SizedBox(width: 10),
+                                const SizedBox(
+                                  height: 44,
+                                  width: 327,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.all(10),
+                                      hintText: 'Card number *',
+                                      border: InputBorder.none,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           )
                         ],
@@ -608,17 +657,29 @@ class Checkout extends StatelessWidget {
                       ],
                     ),
                     //
-                    Container(
-                      height: 48,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFF077929),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Make Payment',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const Payment();
+                            },
+                          ),
+                          (route) => false,
+                        );
+                      },
+                      child: Container(
+                        height: 48,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color(0xFF077929),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Make Payment',
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
                         ),
                       ),
                     ),
